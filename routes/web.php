@@ -18,6 +18,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
+
+    Route::get('/recipes', function () {
+        return Inertia::render('Recipes');
+    })->name('recipes');
 });
 
 Route::middleware('auth')->group(function () {
