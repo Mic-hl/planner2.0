@@ -1,0 +1,63 @@
+@use '../abstracts/variables';
+@use '../abstracts/mixins';
+
+.recipe {
+
+    @include mixins.border(variables.$color-text);
+    @include mixins.flex(stretch, space-between, column);
+    background-color: variables.$color-background-element;
+    margin-inline: auto;
+    padding: 1em;
+    width: clamp(200px, 100%, 1000px);
+
+    h1 {
+        font-size: 1.5em;
+        font-weight: 700;
+    }
+
+    .recipe-head {
+
+        @include mixins.flex(stretch, space-between, row, wrap);
+        margin: 0 0 1em 0;
+        position: relative;
+
+        .recipe-title {
+            font-size: 1.5em;
+            font-weight: 700;
+            text-align: center;
+            width: 100%;
+        }
+    
+        .recipe-difficulty,
+        .recipe-time {
+            font-size: 0.7em;
+            font-weight: 600;
+        }
+    }
+
+    .recipe-btns {
+        @include mixins.flex(stretch, flex-start, row, wrap, 0.5em);
+        justify-content: end;
+        margin: 1em 0 0 0;
+    }
+}
+
+.recipe-list {
+
+    @include mixins.flex(stretch, flex-start, row, wrap, 1em);
+
+    > .recipe {
+        margin: 0 auto 2em auto;
+        width: clamp(200px, 100%, 450px);
+    }
+}
+
+.content-wrapper {
+
+    @include mixins.flex(stretch, flex-start, column);
+
+    .search-bar {
+        margin-bottom: variables.$spacer;
+        margin-top: variables.$spacer;
+    }
+}

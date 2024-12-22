@@ -1,0 +1,94 @@
+@use 'sass:color';
+@use 'variables';
+
+/*
+    Add a border to an element
+*/
+@mixin border($color: variables.$color-border-light) {
+    border: 3px solid $color;
+    border-radius: variables.$border-radius;
+}
+
+/*
+    Create a Flexbox
+*/
+@mixin flex($align: stretch, $justify: flex-start, $direction: row, $wrap: nowrap, $gap: null) {
+    align-items: $align;
+    display: flex;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+    justify-content: $justify;
+
+    @if $gap != null {
+        gap: $gap;
+    }
+}
+
+/*
+    Create Spacing
+*/
+
+@mixin spacing() {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: variables.$width-standard;
+    padding-left: variables.$spacer;
+    padding-right: variables.$spacer;
+
+    @media screen and (min-width: variables.$screen-md) {
+        padding-left: calc(variables.$spacer * 1.5);
+        padding-right: calc(variables.$spacer * 1.5);
+    }
+
+    @media screen and (min-width: variables.$screen-lg) {
+        padding-left: calc(variables.$spacer * 2);
+        padding-right: calc(variables.$spacer * 2);
+    }
+}
+/*
+    Create a button
+*/
+@mixin button($color) {
+    @include border();
+    background-color: $color;
+    color: inherit;
+    cursor: pointer;
+    display: inline-block;
+    font-size: inherit;
+    height: 100%;
+    min-width: 5em;
+    padding: 0.5em;
+    text-align: center;
+    text-decoration: none;
+
+    &:hover {
+        background-color: color.scale($color, $lightness: -21%);
+        color: #ffffff;
+    }
+
+    a {
+        color: inherit;
+        padding: 0.5em;
+        text-decoration: none;
+    }
+
+    &.disabled {
+        background-color: variables.$color-button-disabled;
+        color: #ffffff;
+        cursor: not-allowed;
+
+        &:hover {
+            background-color: variables.$color-button-disabled;
+        }
+    }
+
+    &.active {
+        background-color: variables.$color-secondary-light;
+        color: #ffffff;
+        cursor: not-allowed;
+
+        &:hover {
+            background-color: variables.$color-secondary-light;
+        }
+    }
+}

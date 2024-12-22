@@ -1,0 +1,7 @@
+@use '../abstracts/variables';
+
+.application-wrapper {
+    background: variables.$color-background-primary;
+    color: variables.$color-text;
+    min-height: 100vh;
+}

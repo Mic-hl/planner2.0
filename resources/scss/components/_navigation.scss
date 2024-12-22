@@ -1,0 +1,12 @@
+@use '../abstracts/variables';
+
+.nav-menu {
+    background: variables.$color-background-secondary;
+    border-bottom-width: 1px;
+    border-bottom-color: #f3f4f6;
+    color: variables.$color-text;
+
+    *, a, svg {
+        color: inherit;
+    }
+}

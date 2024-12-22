@@ -1,0 +1,5 @@
+@use '../abstracts/variables';
+
+header {
+    background: variables.$color-background-secondary;
+}

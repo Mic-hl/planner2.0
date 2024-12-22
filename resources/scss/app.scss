@@ -1,2 +1,11 @@
 // Base 
 @use './base/reset';
+@use './base/typography';
+
+// Pages
+@use './pages/general';
+@use './pages/recipes';
+
+// Components
+@use './components/header';
+@use './components/navigation';
